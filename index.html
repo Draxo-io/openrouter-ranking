@@ -3,253 +3,487 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LLM Cost-Effectiveness Ranking — OpenRouter</title>
-<meta name="description" content="Weekly ranking of LLM models on OpenRouter, ordered by cost-benefit across chat, code, reasoning, research, and more.">
+<title>OpenRouter LLM Cost-Effectiveness Ranking — Draxo.io</title>
+<meta name="description" content="Weekly ranking of LLM models on OpenRouter, ordered by cost-benefit across chat, code, reasoning, research, and batch processing.">
 <meta property="og:title" content="🏆 OpenRouter LLM Cost-Effectiveness Ranking">
-<meta property="og:description" content="Find the best LLM for your budget. Updated weekly.">
+<meta property="og:description" content="Find the best LLM for your task and budget. Updated weekly from live OpenRouter pricing.">
 <meta property="og:image" content="https://raw.githubusercontent.com/Draxo-io/openrouter-ranking/main/.github/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* ── Design System: Linear-inspired ── */
   :root {
-    --bg: #0d1117;
-    --fg: #c9d1d9;
-    --accent: #58a6ff;
-    --border: #30363d;
-    --card: #161b22;
-    --green: #3fb950;
-    --yellow: #d2991d;
-    --orange: #db6d28;
-    --red: #f85149;
+    --bg-canvas: #08090a;
+    --bg-panel: #0f1011;
+    --bg-surface: #191a1b;
+    --bg-elevated: #28282c;
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+    --text-quaternary: #62666d;
+    --accent: #5e6ad2;
+    --accent-bright: #7170ff;
+    --accent-hover: #828fff;
+    --border-subtle: rgba(255,255,255,0.05);
+    --border-standard: rgba(255,255,255,0.08);
+    --border-solid: #23252a;
+    --green: #10b981;
+    --yellow: #eab308;
+    --orange: #f97316;
+    --red: #ef4444;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    padding: 2rem 1rem;
-    max-width: 960px;
-    margin: 0 auto;
+    background: var(--bg-canvas);
+    color: var(--text-secondary);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv01', 'ss03';
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #f0f6fc; }
-  h2 { font-size: 1.4rem; margin: 2rem 0 0.5rem; color: #f0f6fc; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
-  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .header {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+
+  /* ── Typography ── */
+  h1 { font-size: 3rem; font-weight: 510; line-height: 1.0; letter-spacing: -1.056px; color: var(--text-primary); }
+  h2 { font-size: 1.5rem; font-weight: 510; line-height: 1.33; letter-spacing: -0.288px; color: var(--text-primary); }
+  h3 { font-size: 1.25rem; font-weight: 590; line-height: 1.33; letter-spacing: -0.24px; color: var(--text-secondary); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  a { color: var(--accent-bright); text-decoration: none; transition: color 0.15s; }
+  a:hover { color: var(--accent-hover); }
+
+  /* ── Layout ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Navigation ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(8,9,10,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .header img { width: 40px; height: 40px; }
-  .header-meta { font-size: 0.9rem; color: #8b949e; }
-  .badges { display: flex; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap; }
-  .badge { 
-    display: inline-block; padding: 0.2rem 0.6rem; border-radius: 2rem;
-    font-size: 0.75rem; font-weight: 600;
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 16px; padding-bottom: 16px;
   }
-  .badge-green { background: var(--green); color: #000; }
-  .badge-yellow { background: var(--yellow); color: #000; }
-  .badge-orange { background: var(--orange); color: #fff; }
-  .badge-red { background: var(--red); color: #fff; }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 15px; font-weight: 510; color: var(--text-primary);
+  }
+  .nav-brand .logo {
+    width: 28px; height: 28px; border-radius: var(--radius-md);
+    background: var(--accent); display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #fff;
+  }
+  .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 510; color: var(--text-secondary); letter-spacing: -0.13px; }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: #fff !important;
+    padding: 6px 14px; border-radius: var(--radius-md);
+    font-size: 13px; font-weight: 510;
+  }
+  .nav-cta:hover { background: var(--accent-hover); }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px 0 64px; text-align: center;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 510; letter-spacing: -1.2px; line-height: 1.05;
+  }
+  .hero .gradient-text {
+    background: linear-gradient(135deg, #7170ff 0%, #828fff 40%, #a78bfa 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    margin-top: 16px; font-size: 18px; font-weight: 400; line-height: 1.6;
+    color: var(--text-tertiary); max-width: 600px; margin-left: auto; margin-right: auto;
+    letter-spacing: -0.165px;
+  }
+  .hero-meta {
+    margin-top: 24px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; border: 1px solid var(--border-solid);
+    border-radius: 9999px; padding: 4px 12px 4px 8px;
+    font-size: 12px; font-weight: 510; color: var(--text-secondary);
+  }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .pill-dot.green { background: var(--green); }
+  .pill-dot.purple { background: var(--accent-bright); }
+
+  /* ── Top 3 Cards ── */
+  .top3-section { padding: 48px 0; }
+  .section-label {
+    font-size: 11px; font-weight: 510; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--text-quaternary); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::before {
+    content: ''; width: 8px; height: 8px; border-radius: 2px; background: var(--accent);
+  }
+  .top3-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .top3-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .top3-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12); }
+  .top3-card.featured { border-color: rgba(113,112,255,0.25); background: rgba(113,112,255,0.03); }
+  .top3-card.featured:hover { border-color: rgba(113,112,255,0.4); }
+  .top3-rank { font-size: 13px; font-weight: 590; color: var(--text-quaternary); margin-bottom: 8px; }
+  .top3-card.featured .top3-rank { color: var(--accent-bright); }
+  .top3-model { font-size: 14px; font-weight: 510; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; word-break: break-all; }
+  .top3-price {
+    margin-top: 8px; font-size: 24px; font-weight: 590; color: var(--text-primary);
+    letter-spacing: -0.5px;
+  }
+  .top3-price span { font-size: 14px; font-weight: 400; color: var(--text-tertiary); }
+  .top3-reason { margin-top: 8px; font-size: 13px; color: var(--text-tertiary); line-height: 1.5; letter-spacing: -0.13px; }
+
+  /* ── Category Tables ── */
+  .category { padding: 32px 0; border-top: 1px solid var(--border-subtle); }
+  .category-header {
+    display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px;
+  }
+  .category-header h3 { color: var(--text-primary); font-size: 18px; }
+  .category-header p { font-size: 14px; color: var(--text-tertiary); font-weight: 300; }
+
+  .table-wrap {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
   table {
-    width: 100%; border-collapse: collapse; margin: 0.8rem 0 1.5rem;
-    font-size: 0.85rem;
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; font-weight: 400; letter-spacing: -0.13px;
   }
   th {
-    text-align: left; padding: 0.5rem 0.6rem;
-    background: var(--card); border-bottom: 2px solid var(--border);
-    font-weight: 600; font-size: 0.75rem; text-transform: uppercase;
-    color: #8b949e;
+    text-align: left; padding: 8px 12px;
+    font-size: 11px; font-weight: 510; text-transform: uppercase;
+    color: var(--text-quaternary); letter-spacing: 0.5px;
+    background: rgba(255,255,255,0.015);
+    border-bottom: 1px solid var(--border-subtle);
   }
   td {
-    padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border);
-    vertical-align: middle;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
   }
-  tr:hover { background: rgba(88,166,255,0.05); }
-  code {
-    background: rgba(110,118,129,0.15); padding: 0.15rem 0.4rem;
-    border-radius: 4px; font-size: 0.82rem; font-family: 'SF Mono', 'Fira Code', monospace;
-    word-break: break-all;
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  td:first-child { color: var(--text-quaternary); font-weight: 510; font-size: 12px; width: 32px; }
+  td code {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    color: var(--text-primary); background: rgba(255,255,255,0.04);
+    padding: 2px 6px; border-radius: var(--radius-sm);
   }
-  .summary { 
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.2rem; margin: 1rem 0;
+  .price-cell { font-weight: 590; color: var(--text-primary); white-space: nowrap; }
+  .price-cell .bar { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .bar-green { background: var(--green); }
+  .bar-yellow { background: var(--yellow); }
+  .bar-orange { background: var(--orange); }
+  .bar-red { background: var(--red); }
+
+  .note-cell { font-size: 12px; color: var(--text-tertiary); max-width: 280px; line-height: 1.4; }
+  .star-cell { color: var(--accent-bright); }
+  .ctx-cell { color: var(--text-quaternary); font-size: 12px; }
+
+  /* ── Quick Picks ── */
+  .quick-picks {
+    padding: 40px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
   }
-  .top3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0; }
-  .top3-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 8px; padding: 1rem; text-align: center;
+  .picks-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
   }
-  .top3-card .medal { font-size: 2rem; }
-  .top3-card .model { font-size: 0.8rem; word-break: break-all; margin: 0.5rem 0; }
-  .top3-card .reason { font-size: 0.8rem; color: #8b949e; }
-  .cta {
-    display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
-    justify-content: center;
+  .pick-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+    padding: 20px;
   }
-  .cta a {
-    display: inline-block; padding: 0.6rem 1.5rem;
-    background: var(--accent); color: #000; border-radius: 6px;
-    font-weight: 600; font-size: 0.9rem;
+  .pick-card .pick-scenario { font-size: 12px; font-weight: 510; color: var(--text-quaternary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pick-card .pick-model { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: var(--accent-bright); }
+  .pick-card .pick-price { margin-top: 4px; font-size: 13px; color: var(--text-tertiary); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 40px 0; border-top: 1px solid var(--border-subtle);
+    text-align: center;
   }
-  .cta a:hover { background: #79c0ff; text-decoration: none; }
-  .footer {
-    margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
-    text-align: center; font-size: 0.85rem; color: #8b949e;
+  footer p { font-size: 13px; color: var(--text-quaternary); letter-spacing: -0.13px; }
+  footer a { color: var(--text-tertiary); }
+  footer .footer-links { display: flex; gap: 20px; justify-content: center; margin-top: 12px; }
+  .methodology {
+    margin-top: 24px; font-size: 12px; color: var(--text-quaternary);
+    max-width: 600px; margin-left: auto; margin-right: auto;
   }
-  .emoji-indicator {
-    display: inline-block; width: 1.3rem; text-align: center;
+
+  /* ── Status dot animation ── */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
-  @media (max-width: 640px) {
-    body { padding: 1rem 0.5rem; font-size: 0.9rem; }
-    h1 { font-size: 1.4rem; }
-    table { font-size: 0.72rem; }
-    td, th { padding: 0.3rem 0.3rem; }
-    code { font-size: 0.7rem; }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    h1 { font-size: 2rem; letter-spacing: -0.6px; }
+    .hero { padding: 48px 0 40px; }
+    .top3-grid { grid-template-columns: 1fr; }
+    .picks-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 16px; }
+    .nav-links { gap: 12px; }
+    .nav-links a { font-size: 12px; }
+    table { font-size: 11px; }
+    td, th { padding: 6px 8px; }
+    td code { font-size: 10px; }
+    .note-cell { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-meta { gap: 8px; }
+    .pill { font-size: 11px; padding: 3px 10px 3px 6px; }
+    .ctx-cell { display: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div>
-    <h1>🏆 OpenRouter LLM Cost-Effectiveness Ranking</h1>
-    <p class="header-meta">Find the best LLM for your task and budget. Updated weekly from live OpenRouter pricing.</p>
-    <div class="badges">
-      <a href="https://github.com/Draxo-io/openrouter-ranking"><span class="badge badge-green">🔄 Auto-Updated</span></a>
-      <a href="https://openrouter.ai"><span class="badge badge-yellow">OpenRouter API</span></a>
-      <span class="badge badge-green" id="model-count">308 models</span>
+<nav>
+  <div class="container">
+    <a href="/" class="nav-brand">
+      <div class="logo">🏆</div>
+      Draxo.io
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://github.com/Draxo-io/openrouter-ranking">GitHub</a></li>
+      <li><a href="https://openrouter.ai">OpenRouter</a></li>
+      <li><a href="https://draxo.io" class="nav-cta">draxo.io →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>LLM <span class="gradient-text">Cost-Effectiveness</span><br>Ranking</h1>
+    <p>The definitive weekly ranking of AI models on OpenRouter — ordered by real cost vs. real quality, for real use cases.</p>
+    <div class="hero-meta">
+      <div class="pill"><span class="live-dot"></span> Updated weekly</div>
+      <div class="pill"><span class="pill-dot purple"></span> Powered by OpenRouter API</div>
+      <div class="pill"><span class="pill-dot green"></span> 307 paid models analyzed</div>
+      <div class="pill">🇧🇷 + 🇺🇸</div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="top3" id="top3">
-  <div class="top3-card">
-    <div class="medal">🥇</div>
-    <div><strong>Best Overall</strong></div>
-    <div class="model"><code>deepseek/deepseek-v4-pro</code></div>
-    <div class="reason">Best quality/price ratio across all categories. ~$0.54/1M tokens.</div>
+<main class="container">
+
+  <!-- Top 3 Podium -->
+  <section class="top3-section">
+    <div class="section-label">Podium</div>
+    <div class="top3-grid">
+      <div class="top3-card featured">
+        <div class="top3-rank">🥇 Best Overall</div>
+        <div class="top3-model">deepseek/deepseek-v4-pro</div>
+        <div class="top3-price">$0.54<span>/1M tokens</span></div>
+        <div class="top3-reason">GPT-4o-class quality at flash-model prices. Dominates every category.</div>
+      </div>
+      <div class="top3-card">
+        <div class="top3-rank">🥈 Best Bargain</div>
+        <div class="top3-model">qwen/qwen3-235b-a22b-2507</div>
+        <div class="top3-price">$0.09<span>/1M tokens</span></div>
+        <div class="top3-reason">235B parameters (MoE) for pocket change. Unbeatable for high-volume tasks.</div>
+      </div>
+      <div class="top3-card">
+        <div class="top3-rank">🥉 Best All-Rounder</div>
+        <div class="top3-model">qwen/qwen3.7-plus</div>
+        <div class="top3-price">$0.70<span>/1M tokens</span></div>
+        <div class="top3-reason">1M context window, multimodal, versatile. The sweet spot of price and power.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Picks -->
+  <section class="quick-picks">
+    <div class="section-label">Quick Picks</div>
+    <div class="picks-grid">
+      <div class="pick-card">
+        <div class="pick-scenario">💸 Cheapest possible</div>
+        <div class="pick-model">qwen/qwen3-235b-a22b-2507</div>
+        <div class="pick-price">$0.09/M — 235B MoE</div>
+      </div>
+      <div class="pick-card">
+        <div class="pick-scenario">⭐ Best all-rounder</div>
+        <div class="pick-model">deepseek/deepseek-v4-pro</div>
+        <div class="pick-price">$0.54/M — GPT-4o quality</div>
+      </div>
+      <div class="pick-card">
+        <div class="pick-scenario">📚 1M context docs</div>
+        <div class="pick-model">qwen/qwen3.7-plus</div>
+        <div class="pick-price">$0.70/M — 1,000,000 tokens</div>
+      </div>
+      <div class="pick-card">
+        <div class="pick-scenario">💻 Code generation</div>
+        <div class="pick-model">qwen/qwen3-coder-flash</div>
+        <div class="pick-price">$0.39/M — Dedicated coder</div>
+      </div>
+      <div class="pick-card">
+        <div class="pick-scenario">👁️ Vision / multimodal</div>
+        <div class="pick-model">qwen/qwen3-vl-235b-a22b</div>
+        <div class="pick-price">$0.37/M — Image + text</div>
+      </div>
+      <div class="pick-card">
+        <div class="pick-scenario">🏔️ No budget limit</div>
+        <div class="pick-model">anthropic/claude-sonnet-4.5</div>
+        <div class="pick-price">$6.00/M — Best analysis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ranking Tables (injected by JS) -->
+  <div id="ranking-content">
+    <section class="category" style="text-align:center;padding:60px 0;">
+      <p style="color:var(--text-tertiary);font-size:15px;">🔄 Loading live ranking data from OpenRouter API…</p>
+    </section>
   </div>
-  <div class="top3-card">
-    <div class="medal">🥈</div>
-    <div><strong>Best Bargain</strong></div>
-    <div class="model"><code>qwen/qwen3-235b-a22b-2507</code></div>
-    <div class="reason">235B parameters (MoE) for just $0.09/1M tokens.</div>
+
+</main>
+
+<section class="container methodology" style="padding: 40px 0;">
+  <div class="section-label">Methodology</div>
+  <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;max-width:700px;">
+    Cost is calculated as <code style="font-size:12px;">(prompt × 750k) + (completion × 250k)</code> per 1M tokens,
+    assuming a typical 3:1 prompt-to-completion ratio. Data is fetched from the
+    <a href="https://openrouter.ai/api/v1/models">OpenRouter API</a> in real time.
+    Free and router-only models are excluded. Ranking prioritizes <strong>value</strong> —
+    not just cheapest, not just best quality, but the intersection of both.
+  </p>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Open source · <a href="https://github.com/Draxo-io/openrouter-ranking">Draxo-io/openrouter-ranking</a></p>
+    <div class="footer-links">
+      <a href="https://draxo.io">draxo.io</a>
+      <a href="https://github.com/Draxo-io">GitHub</a>
+      <a href="https://openrouter.ai">OpenRouter</a>
+    </div>
   </div>
-  <div class="top3-card">
-    <div class="medal">🥉</div>
-    <div><strong>Best All-Rounder</strong></div>
-    <div class="model"><code>qwen/qwen3.7-plus</code></div>
-    <div class="reason">1M context, multimodal, versatile. $0.70/1M tokens.</div>
-  </div>
-</div>
-
-<hr style="border-color: var(--border); margin: 2rem 0;">
-
-<div id="content">
-  <p style="text-align:center;padding:3rem;color:#8b949e;">🔄 Loading latest ranking from GitHub...</p>
-</div>
-
-<div class="cta">
-  <a href="https://github.com/Draxo-io/openrouter-ranking">⭐ Star on GitHub</a>
-  <a href="https://github.com/Draxo-io/openrouter-ranking/blob/main/generate_ranking.py">📜 View Source</a>
-  <a href="https://openrouter.ai">🔗 OpenRouter</a>
-</div>
-
-<div class="footer">
-  <p>Powered by <a href="https://openrouter.ai">OpenRouter API</a> · Automated via <a href="https://github.com/Draxo-io/openrouter-ranking">GitHub Actions</a></p>
-  <p>Created by <a href="https://draxo.io">draxo.io</a> · <a href="https://github.com/Draxo-io">@Draxo-io</a></p>
-</div>
+</footer>
 
 <script>
-// Fetch and render the README from GitHub
 (async function() {
   try {
     const resp = await fetch('https://raw.githubusercontent.com/Draxo-io/openrouter-ranking/main/README.md');
     const md = await resp.text();
-    renderMarkdown(md);
-  } catch (e) {
-    document.getElementById('content').innerHTML = '<p style="text-align:center;padding:2rem;color:var(--red);">⚠️ Could not load ranking. <a href="https://github.com/Draxo-io/openrouter-ranking">View on GitHub</a></p>';
+    const html = markdownToHTML(md);
+    document.getElementById('ranking-content').innerHTML = html;
+  } catch(e) {
+    document.getElementById('ranking-content').innerHTML =
+      '<section class="category" style="text-align:center;padding:40px;"><p style="color:var(--red);">⚠️ Could not load ranking. <a href="https://github.com/Draxo-io/openrouter-ranking">View on GitHub</a></p></section>';
   }
 })();
 
-function renderMarkdown(md) {
-  // Simple markdown → HTML converter
+function markdownToHTML(md) {
   let html = md;
-  
+  // Strip the header / badges / about section — we already have those
+  const cutoff = html.indexOf('## 💬');
+  if (cutoff === -1) return html;
+  html = html.substring(cutoff);
+
   // Headers
-  html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.+)$/gm, ''); // remove first h1
-  
-  // Code
+  html = html.replace(/^### (.+)$/gm, '<h3 style="margin-top:24px;">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, (_, title) => {
+    return `</div></section><section class="category"><div class="container" style="max-width:1100px;margin:0 auto;padding:0;"><h2>${title}</h2>`;
+  });
+  // Clean up the first closing tag
+  html = html.replace('</div></section>', '');
+
+  // Code & bold
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-  
-  // Bold/italic
-  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  
-  // Links
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
-  
-  // Blockquotes
-  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-  
-  // Horizontal rules
-  html = html.replace(/^---$/gm, '<hr>');
-  
-  // Tables (simple approach: split into sections, detect table lines)
+
+  // Blocks
+  html = html.replace(/^> (.+)$/gm, '<blockquote style="color:var(--text-tertiary);font-size:14px;padding-left:12px;border-left:2px solid var(--border-standard);margin:8px 0;">$1</blockquote>');
+  html = html.replace(/^---$/gm, '');
+
+  // Tables
   const lines = html.split('\n');
   let result = [];
-  let inTable = false;
-  let tableRows = [];
-  
+  let inTable = false, tableRows = [], headerRow = null;
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
-    
     if (line.startsWith('|') && line.endsWith('|')) {
-      if (!inTable) {
-        inTable = true;
-        tableRows = [];
-      }
-      // Skip separator rows like |---|
-      if (!line.match(/^\|[\s\-:]+\|/)) {
-        tableRows.push(line);
-      }
+      if (!inTable) { inTable = true; tableRows = []; headerRow = null; }
+      if (line.match(/^\|[\s\-:]+\|/)) continue; // skip separator
+      if (!headerRow) { headerRow = line; continue; }
+      tableRows.push(line);
     } else {
       if (inTable) {
-        result.push(renderTable(tableRows));
-        tableRows = [];
-        inTable = false;
+        result.push(renderTable(headerRow, tableRows));
+        tableRows = []; headerRow = null; inTable = false;
       }
       if (line) result.push(line);
     }
   }
-  if (inTable && tableRows.length) {
-    result.push(renderTable(tableRows));
-  }
-  
-  document.getElementById('content').innerHTML = result.join('\n');
+  if (inTable) result.push(renderTable(headerRow, tableRows));
+
+  // Wrap in table-wrap
+  let final = result.join('\n');
+  final = final.replace(/<table>/g, '<div class="table-wrap"><table>');
+  final = final.replace(/<\/table>/g, '</table></div>');
+
+  return final + '</div></section>';
 }
 
-function renderTable(rows) {
-  if (rows.length === 0) return '';
-  let table = '<table>';
-  rows.forEach((row, idx) => {
+function renderTable(headerRow, rows) {
+  if (!headerRow || rows.length === 0) return '';
+  const headers = headerRow.split('|').filter(c => c.trim());
+  let html = '<table><thead><tr>';
+  headers.forEach(h => { html += `<th>${h.trim()}</th>`; });
+  html += '</tr></thead><tbody>';
+
+  rows.forEach(row => {
     const cells = row.split('|').filter(c => c.trim());
-    const tag = idx === 0 ? 'th' : 'td';
-    table += '<tr>';
-    cells.forEach(cell => {
-      // Colorize price indicators
+    html += '<tr>';
+    cells.forEach((cell, ci) => {
       let content = cell.trim();
-      table += `<${tag}>${content}</${tag}>`;
+      let cls = '';
+      // Add classes based on column position
+      // 0 = rank/number, 1 = model code, 2 = price
+      if (ci === 0) cls = ' class="star-cell"';
+      else if (ci === 1) cls = '';
+      else if (ci === 2) cls = ' class="price-cell"';
+      else if (ci === cells.length - 1) cls = ' class="note-cell"';
+      html += `<td${cls}>${content}</td>`;
     });
-    table += '</tr>';
+    html += '</tr>';
   });
-  table += '</table>';
-  return table;
+  html += '</tbody></table>';
+  return html;
 }
 </script>
 
