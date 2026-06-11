@@ -1,6 +1,6 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
-> **Atualizado:** 2026-06-11 09:51 UTC  
+> **Atualizado:** 2026-06-11 09:56 UTC  
 > **Total de modelos no OpenRouter:** 338  
 > **Modelos pagos analisados:** 308  
 > **Metodologia:** Preço por 1M tokens (750K prompt + 250K completion). Dados via [OpenRouter API](https://openrouter.ai/api/v1/models).
