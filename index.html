@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Cost-Effectiveness Ranking — OpenRouter</title>
+<meta name="description" content="Weekly ranking of LLM models on OpenRouter, ordered by cost-benefit across chat, code, reasoning, research, and more.">
+<meta property="og:title" content="🏆 OpenRouter LLM Cost-Effectiveness Ranking">
+<meta property="og:description" content="Find the best LLM for your budget. Updated weekly.">
+<meta property="og:image" content="https://raw.githubusercontent.com/rafaellopes/openrouter-ranking/main/.github/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --bg: #0d1117;
+    --fg: #c9d1d9;
+    --accent: #58a6ff;
+    --border: #30363d;
+    --card: #161b22;
+    --green: #3fb950;
+    --yellow: #d2991d;
+    --orange: #db6d28;
+    --red: #f85149;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #f0f6fc; }
+  h2 { font-size: 1.4rem; margin: 2rem 0 0.5rem; color: #f0f6fc; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+  }
+  .header img { width: 40px; height: 40px; }
+  .header-meta { font-size: 0.9rem; color: #8b949e; }
+  .badges { display: flex; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap; }
+  .badge { 
+    display: inline-block; padding: 0.2rem 0.6rem; border-radius: 2rem;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .badge-green { background: var(--green); color: #000; }
+  .badge-yellow { background: var(--yellow); color: #000; }
+  .badge-orange { background: var(--orange); color: #fff; }
+  .badge-red { background: var(--red); color: #fff; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 0.8rem 0 1.5rem;
+    font-size: 0.85rem;
+  }
+  th {
+    text-align: left; padding: 0.5rem 0.6rem;
+    background: var(--card); border-bottom: 2px solid var(--border);
+    font-weight: 600; font-size: 0.75rem; text-transform: uppercase;
+    color: #8b949e;
+  }
+  td {
+    padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:hover { background: rgba(88,166,255,0.05); }
+  code {
+    background: rgba(110,118,129,0.15); padding: 0.15rem 0.4rem;
+    border-radius: 4px; font-size: 0.82rem; font-family: 'SF Mono', 'Fira Code', monospace;
+    word-break: break-all;
+  }
+  .summary { 
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.2rem; margin: 1rem 0;
+  }
+  .top3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .top3-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem; text-align: center;
+  }
+  .top3-card .medal { font-size: 2rem; }
+  .top3-card .model { font-size: 0.8rem; word-break: break-all; margin: 0.5rem 0; }
+  .top3-card .reason { font-size: 0.8rem; color: #8b949e; }
+  .cta {
+    display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cta a {
+    display: inline-block; padding: 0.6rem 1.5rem;
+    background: var(--accent); color: #000; border-radius: 6px;
+    font-weight: 600; font-size: 0.9rem;
+  }
+  .cta a:hover { background: #79c0ff; text-decoration: none; }
+  .footer {
+    margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+    text-align: center; font-size: 0.85rem; color: #8b949e;
+  }
+  .emoji-indicator {
+    display: inline-block; width: 1.3rem; text-align: center;
+  }
+  @media (max-width: 640px) {
+    body { padding: 1rem 0.5rem; font-size: 0.9rem; }
+    h1 { font-size: 1.4rem; }
+    table { font-size: 0.72rem; }
+    td, th { padding: 0.3rem 0.3rem; }
+    code { font-size: 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🏆 OpenRouter LLM Cost-Effectiveness Ranking</h1>
+    <p class="header-meta">Find the best LLM for your task and budget. Updated weekly from live OpenRouter pricing.</p>
+    <div class="badges">
+      <a href="https://github.com/rafaellopes/openrouter-ranking"><span class="badge badge-green">🔄 Auto-Updated</span></a>
+      <a href="https://openrouter.ai"><span class="badge badge-yellow">OpenRouter API</span></a>
+      <span class="badge badge-green" id="model-count">308 models</span>
+    </div>
+  </div>
+</div>
+
+<div class="top3" id="top3">
+  <div class="top3-card">
+    <div class="medal">🥇</div>
+    <div><strong>Best Overall</strong></div>
+    <div class="model"><code>deepseek/deepseek-v4-pro</code></div>
+    <div class="reason">Best quality/price ratio across all categories. ~$0.54/1M tokens.</div>
+  </div>
+  <div class="top3-card">
+    <div class="medal">🥈</div>
+    <div><strong>Best Bargain</strong></div>
+    <div class="model"><code>qwen/qwen3-235b-a22b-2507</code></div>
+    <div class="reason">235B parameters (MoE) for just $0.09/1M tokens.</div>
+  </div>
+  <div class="top3-card">
+    <div class="medal">🥉</div>
+    <div><strong>Best All-Rounder</strong></div>
+    <div class="model"><code>qwen/qwen3.7-plus</code></div>
+    <div class="reason">1M context, multimodal, versatile. $0.70/1M tokens.</div>
+  </div>
+</div>
+
+<hr style="border-color: var(--border); margin: 2rem 0;">
+
+<div id="content">
+  <p style="text-align:center;padding:3rem;color:#8b949e;">🔄 Loading latest ranking from GitHub...</p>
+</div>
+
+<div class="cta">
+  <a href="https://github.com/rafaellopes/openrouter-ranking">⭐ Star on GitHub</a>
+  <a href="https://github.com/rafaellopes/openrouter-ranking/blob/main/generate_ranking.py">📜 View Source</a>
+  <a href="https://openrouter.ai">🔗 OpenRouter</a>
+</div>
+
+<div class="footer">
+  <p>Powered by <a href="https://openrouter.ai">OpenRouter API</a> · Automated via <a href="https://github.com/rafaellopes/openrouter-ranking">GitHub Actions</a></p>
+  <p>Created by <a href="https://draxo.io">draxo.io</a> · <a href="https://github.com/rafaellopes">@rafaellopes</a></p>
+</div>
+
+<script>
+// Fetch and render the README from GitHub
+(async function() {
+  try {
+    const resp = await fetch('https://raw.githubusercontent.com/rafaellopes/openrouter-ranking/main/README.md');
+    const md = await resp.text();
+    renderMarkdown(md);
+  } catch (e) {
+    document.getElementById('content').innerHTML = '<p style="text-align:center;padding:2rem;color:var(--red);">⚠️ Could not load ranking. <a href="https://github.com/rafaellopes/openrouter-ranking">View on GitHub</a></p>';
+  }
+})();
+
+function renderMarkdown(md) {
+  // Simple markdown → HTML converter
+  let html = md;
+  
+  // Headers
+  html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, ''); // remove first h1
+  
+  // Code
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  
+  // Bold/italic
+  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  
+  // Blockquotes
+  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+  
+  // Horizontal rules
+  html = html.replace(/^---$/gm, '<hr>');
+  
+  // Tables (simple approach: split into sections, detect table lines)
+  const lines = html.split('\n');
+  let result = [];
+  let inTable = false;
+  let tableRows = [];
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    if (line.startsWith('|') && line.endsWith('|')) {
+      if (!inTable) {
+        inTable = true;
+        tableRows = [];
+      }
+      // Skip separator rows like |---|
+      if (!line.match(/^\|[\s\-:]+\|/)) {
+        tableRows.push(line);
+      }
+    } else {
+      if (inTable) {
+        result.push(renderTable(tableRows));
+        tableRows = [];
+        inTable = false;
+      }
+      if (line) result.push(line);
+    }
+  }
+  if (inTable && tableRows.length) {
+    result.push(renderTable(tableRows));
+  }
+  
+  document.getElementById('content').innerHTML = result.join('\n');
+}
+
+function renderTable(rows) {
+  if (rows.length === 0) return '';
+  let table = '<table>';
+  rows.forEach((row, idx) => {
+    const cells = row.split('|').filter(c => c.trim());
+    const tag = idx === 0 ? 'th' : 'td';
+    table += '<tr>';
+    cells.forEach(cell => {
+      // Colorize price indicators
+      let content = cell.trim();
+      table += `<${tag}>${content}</${tag}>`;
+    });
+    table += '</tr>';
+  });
+  table += '</table>';
+  return table;
+}
+</script>
+
+</body>
+</html>
