@@ -293,8 +293,8 @@ def main():
 
     readme = f"""# 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
-[![Update Ranking](https://github.com/rafaellopes/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/rafaellopes/openrouter-ranking/actions/workflows/update-ranking.yml)
-[![Last Updated](https://img.shields.io/badge/updated-{now.replace(' ', '%20')}-blue)](https://github.com/rafaellopes/openrouter-ranking)
+[![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
+[![Last Updated](https://img.shields.io/badge/updated-{now.replace(' ', '%20')}-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
 > **Atualizado:** {now}  
 > **Total de modelos no OpenRouter:** {total_models}  
@@ -352,7 +352,7 @@ Para rodar manualmente: `python generate_ranking.py`
 
 ---
 
-*Criado por [@rafaellopes](https://github.com/rafaellopes) · [draxo.io](https://draxo.io)*
+*Criado por [@Draxo-io](https://github.com/Draxo-io) · [draxo.io](https://draxo.io)*
 """
 
     output = sys.argv[1] if len(sys.argv) > 1 else OUTPUT_FILE

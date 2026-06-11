@@ -7,7 +7,7 @@
 <meta name="description" content="Weekly ranking of LLM models on OpenRouter, ordered by cost-benefit across chat, code, reasoning, research, and more.">
 <meta property="og:title" content="🏆 OpenRouter LLM Cost-Effectiveness Ranking">
 <meta property="og:description" content="Find the best LLM for your budget. Updated weekly.">
-<meta property="og:image" content="https://raw.githubusercontent.com/rafaellopes/openrouter-ranking/main/.github/og-image.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Draxo-io/openrouter-ranking/main/.github/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
@@ -116,7 +116,7 @@
     <h1>🏆 OpenRouter LLM Cost-Effectiveness Ranking</h1>
     <p class="header-meta">Find the best LLM for your task and budget. Updated weekly from live OpenRouter pricing.</p>
     <div class="badges">
-      <a href="https://github.com/rafaellopes/openrouter-ranking"><span class="badge badge-green">🔄 Auto-Updated</span></a>
+      <a href="https://github.com/Draxo-io/openrouter-ranking"><span class="badge badge-green">🔄 Auto-Updated</span></a>
       <a href="https://openrouter.ai"><span class="badge badge-yellow">OpenRouter API</span></a>
       <span class="badge badge-green" id="model-count">308 models</span>
     </div>
@@ -151,25 +151,25 @@
 </div>
 
 <div class="cta">
-  <a href="https://github.com/rafaellopes/openrouter-ranking">⭐ Star on GitHub</a>
-  <a href="https://github.com/rafaellopes/openrouter-ranking/blob/main/generate_ranking.py">📜 View Source</a>
+  <a href="https://github.com/Draxo-io/openrouter-ranking">⭐ Star on GitHub</a>
+  <a href="https://github.com/Draxo-io/openrouter-ranking/blob/main/generate_ranking.py">📜 View Source</a>
   <a href="https://openrouter.ai">🔗 OpenRouter</a>
 </div>
 
 <div class="footer">
-  <p>Powered by <a href="https://openrouter.ai">OpenRouter API</a> · Automated via <a href="https://github.com/rafaellopes/openrouter-ranking">GitHub Actions</a></p>
-  <p>Created by <a href="https://draxo.io">draxo.io</a> · <a href="https://github.com/rafaellopes">@rafaellopes</a></p>
+  <p>Powered by <a href="https://openrouter.ai">OpenRouter API</a> · Automated via <a href="https://github.com/Draxo-io/openrouter-ranking">GitHub Actions</a></p>
+  <p>Created by <a href="https://draxo.io">draxo.io</a> · <a href="https://github.com/Draxo-io">@Draxo-io</a></p>
 </div>
 
 <script>
 // Fetch and render the README from GitHub
 (async function() {
   try {
-    const resp = await fetch('https://raw.githubusercontent.com/rafaellopes/openrouter-ranking/main/README.md');
+    const resp = await fetch('https://raw.githubusercontent.com/Draxo-io/openrouter-ranking/main/README.md');
     const md = await resp.text();
     renderMarkdown(md);
   } catch (e) {
-    document.getElementById('content').innerHTML = '<p style="text-align:center;padding:2rem;color:var(--red);">⚠️ Could not load ranking. <a href="https://github.com/rafaellopes/openrouter-ranking">View on GitHub</a></p>';
+    document.getElementById('content').innerHTML = '<p style="text-align:center;padding:2rem;color:var(--red);">⚠️ Could not load ranking. <a href="https://github.com/Draxo-io/openrouter-ranking">View on GitHub</a></p>';
   }
 })();
 
