@@ -1,8 +1,11 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
-> **Atualizado:** 2026-06-11 09:56 UTC  
-> **Total de modelos no OpenRouter:** 338  
-> **Modelos pagos analisados:** 308  
+[![Update Ranking](https://github.com/rafaellopes/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/rafaellopes/openrouter-ranking/actions/workflows/update-ranking.yml)
+[![Last Updated](https://img.shields.io/badge/updated-2026-06-11%2016:20%20UTC-blue)](https://github.com/rafaellopes/openrouter-ranking)
+
+> **Atualizado:** 2026-06-11 16:20 UTC  
+> **Total de modelos no OpenRouter:** 337  
+> **Modelos pagos analisados:** 307  
 > **Metodologia:** Preço por 1M tokens (750K prompt + 250K completion). Dados via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
@@ -30,7 +33,7 @@ Este ranking é gerado **automaticamente toda semana** e ordena os modelos dispo
 |---------|--------|---------|
 | 🥇 Melhor Global | `deepseek/deepseek-v4-pro` ($0.54/1M) | Melhor relação qualidade/preço em todas as categorias. |
 | 🥈 Maior Barganha | `qwen/qwen3-235b-a22b-2507` ($0.09/1M) | 235B parâmetros (MoE) por apenas $0.09/1M tokens. |
-| 🥉 Melhor Completo | `qwen/qwen3.7-plus` ($0.70/1M) | 1M contexto, multimodal, versátil, $0.70/1M. |
+| 🥉 Melhor Completo | `qwen/qwen3.7-plus` ($0.56/1M) | 1M contexto, multimodal, versátil, $0.70/1M. |
 
 
 ---
@@ -56,7 +59,7 @@ _Conversas, perguntas, resumos, tradução, escrita criativa_
 |---|--------|------------|--------------|--------------|-----|----------|------|
 | ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.5438 | $0.43 | $0.87 | 2.0x | 1,048,576 | 🔥 Melhor custo-benefício global. Qualidade GPT-4o, preço de flash. |
 | ⭐ 2 | `deepseek/deepseek-v3.2-exp` | 🟡 $0.3050 | $0.27 | $0.41 | 1.5x | 163,840 | DeepSeek experimental, raciocínio forte, barato. |
-| ⭐ 3 | `qwen/qwen3.7-plus` | 🟠 $0.7000 | $0.40 | $1.60 | 4.0x | 1,000,000 | Qwen intermediário top. 1M contexto, ótimo custo. |
+| ⭐ 3 | `qwen/qwen3.7-plus` | 🟠 $0.5600 | $0.32 | $1.28 | 4.0x | 1,000,000 | Qwen intermediário top. 1M contexto, ótimo custo. |
 |  4 | `openai/gpt-5-mini` | 🟠 $0.6875 | $0.25 | $2.00 | 8.0x | 400,000 | GPT-5 Mini. 400K contexto, qualidade OpenAI acessível. |
 |  5 | `x-ai/grok-4.3` | 🔴 $1.5625 | $1.25 | $2.50 | 2.0x | 1,000,000 | Grok 4.3. 1M contexto, web search nativa. |
 |  6 | `openai/gpt-5` | 🔴 $3.4375 | $1.25 | $10.00 | 8.0x | 400,000 | GPT-5. Padrão ouro para tarefas complexas. |
@@ -105,7 +108,7 @@ _Análise de papers, documentos legais, relatórios extensos (requer >100K conte
 
 | # | Modelo | $/1M tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Contexto | Nota |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `qwen/qwen3.7-plus` | 🟠 $0.7000 | $0.40 | $1.60 | 4.0x | 1,000,000 | 🔥 1M contexto por $0.70. Melhor custo-benefício. |
+| ⭐ 1 | `qwen/qwen3.7-plus` | 🟠 $0.5600 | $0.32 | $1.28 | 4.0x | 1,000,000 | 🔥 1M contexto por $0.70. Melhor custo-benefício. |
 | ⭐ 2 | `google/gemini-3.5-flash` | 🔴 $3.3750 | $1.50 | $9.00 | 6.0x | 1,048,576 | Multimodal nativo, processa qualquer formato. |
 | ⭐ 3 | `anthropic/claude-sonnet-4.5` | 🔴 $6.0000 | $3.00 | $15.00 | 5.0x | 1,000,000 | Análise mais precisa e profunda de documentos. |
 |  4 | `deepseek/deepseek-v4-pro` | 🟠 $0.5438 | $0.43 | $0.87 | 2.0x | 1,048,576 | Bom para docs médios (164K ctx). |

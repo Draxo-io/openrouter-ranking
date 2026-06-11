@@ -293,6 +293,9 @@ def main():
 
     readme = f"""# 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
+[![Update Ranking](https://github.com/rafaellopes/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/rafaellopes/openrouter-ranking/actions/workflows/update-ranking.yml)
+[![Last Updated](https://img.shields.io/badge/updated-{now.replace(' ', '%20')}-blue)](https://github.com/rafaellopes/openrouter-ranking)
+
 > **Atualizado:** {now}  
 > **Total de modelos no OpenRouter:** {total_models}  
 > **Modelos pagos analisados:** {len(model_index)}  
