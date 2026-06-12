@@ -17,8 +17,8 @@ OUTPUT_FILE = "README.md"
 # ── Task definitions ──────────────────────────────────────────────
 
 TASKS = {
-    "💬 Chat Cotidiano / Assistente Geral": {
-        "desc": "Conversas, perguntas, resumos, tradução, escrita criativa",
+    "💬 Daily Chat / General Assistant": {
+        "desc": "Conversations, Q&A, summaries, translation, creative writing",
         "models": [
             "deepseek/deepseek-v4-pro",
             "deepseek/deepseek-v3.2-exp",
@@ -30,18 +30,18 @@ TASKS = {
             "google/gemini-3.5-flash",
         ],
         "notes": {
-            "deepseek/deepseek-v4-pro": "🔥 Melhor custo-benefício global. Qualidade GPT-4o, preço de flash.",
-            "deepseek/deepseek-v3.2-exp": "DeepSeek experimental, raciocínio forte, barato.",
-            "qwen/qwen3.7-plus": "Qwen intermediário top. 1M contexto, ótimo custo.",
-            "openai/gpt-5-mini": "GPT-5 Mini. 400K contexto, qualidade OpenAI acessível.",
-            "x-ai/grok-4.3": "Grok 4.3. 1M contexto, web search nativa.",
-            "openai/gpt-5": "GPT-5. Padrão ouro para tarefas complexas.",
-            "anthropic/claude-sonnet-4.5": "Claude Sonnet 4.5. 1M contexto, análise profunda.",
-            "google/gemini-3.5-flash": "Gemini Flash. Multimodal nativo, 1M contexto.",
+            "deepseek/deepseek-v4-pro": "🔥 Best overall value. GPT-4o-class quality at flash prices.",
+            "deepseek/deepseek-v3.2-exp": "DeepSeek experimental. Strong reasoning, cheap.",
+            "qwen/qwen3.7-plus": "Qwen's mid-tier workhorse. 1M context, great value.",
+            "openai/gpt-5-mini": "GPT-5 Mini. 400K context, affordable OpenAI quality.",
+            "x-ai/grok-4.3": "Grok 4.3. 1M context, built-in web search.",
+            "openai/gpt-5": "GPT-5. The gold standard for complex tasks.",
+            "anthropic/claude-sonnet-4.5": "Claude Sonnet 4.5. 1M context, deep analysis.",
+            "google/gemini-3.5-flash": "Gemini Flash. Native multimodal, 1M context.",
         }
     },
-    "💻 Programação / Código": {
-        "desc": "Geração de código, debugging, revisão, arquitetura de software",
+    "💻 Programming / Code": {
+        "desc": "Code generation, debugging, code review, software architecture",
         "models": [
             "deepseek/deepseek-v4-pro",
             "qwen/qwen3-coder",
@@ -53,18 +53,18 @@ TASKS = {
             "anthropic/claude-sonnet-4.5",
         ],
         "notes": {
-            "deepseek/deepseek-v4-pro": "🔥 Imbatível: código de qualidade a preço de flash.",
-            "qwen/qwen3-coder": "Coder 480B dedicado. Contexto 1M.",
-            "qwen/qwen3-coder-flash": "Coder Flash. Rápido e eficiente para tarefas de código.",
-            "qwen/qwen3-coder-30b-a3b-instruct": "Ultra barato para código simples. $0.12/1M!",
-            "mistralai/codestral-2508": "Codestral da Mistral. Focado em código.",
-            "x-ai/grok-build-0.1": "Grok Build. Otimizado para engenharia de software.",
-            "openai/gpt-5-codex": "GPT-5 Codex. Especializado em código, topo OpenAI.",
-            "anthropic/claude-sonnet-4.5": "Claude Sonnet. Ótimo para refatoração e revisão de PRs.",
+            "deepseek/deepseek-v4-pro": "🔥 Unbeatable: production-quality code at flash prices.",
+            "qwen/qwen3-coder": "Dedicated 480B coder. 1M context.",
+            "qwen/qwen3-coder-flash": "Coder Flash. Fast and efficient for code tasks.",
+            "qwen/qwen3-coder-30b-a3b-instruct": "Ultra-cheap for simple code. $0.12/1M!",
+            "mistralai/codestral-2508": "Mistral's Codestral. Code-focused, solid performance.",
+            "x-ai/grok-build-0.1": "Grok Build. Optimized for software engineering.",
+            "openai/gpt-5-codex": "GPT-5 Codex. OpenAI's top-tier coding model.",
+            "anthropic/claude-sonnet-4.5": "Claude Sonnet. Excellent for refactoring and PR reviews.",
         }
     },
-    "🧠 Raciocínio Complexo": {
-        "desc": "Matemática, lógica, ciência, problemas que exigem step-by-step",
+    "🧠 Complex Reasoning": {
+        "desc": "Math, logic, science, step-by-step problem solving",
         "models": [
             "deepseek/deepseek-v4-pro",
             "qwen/qwen3-235b-a22b-thinking-2507",
@@ -76,18 +76,18 @@ TASKS = {
             "openai/o3-pro",
         ],
         "notes": {
-            "deepseek/deepseek-v4-pro": "🔥 Raciocínio forte, preço de modelo leve.",
-            "qwen/qwen3-235b-a22b-thinking-2507": "235B MoE Thinking por $0.10/1M! Maior barganha.",
-            "deepseek/deepseek-v3.2-exp": "Excelente em benchmarks de raciocínio.",
-            "qwen/qwen3-next-80b-a3b-thinking": "80B MoE thinking, barato.",
-            "qwen/qwen3.7-max": "Topo Qwen para raciocínio. 1M contexto.",
-            "openai/o4-mini": "Raciocínio OpenAI acessível.",
-            "anthropic/claude-opus-4.8": "Melhor da Anthropic, preço proibitivo.",
-            "openai/o3-pro": "O mais potente da OpenAI para raciocínio.",
+            "deepseek/deepseek-v4-pro": "🔥 Strong reasoning at lightweight model prices.",
+            "qwen/qwen3-235b-a22b-thinking-2507": "235B MoE Thinking for $0.10/1M! The ultimate bargain.",
+            "deepseek/deepseek-v3.2-exp": "Excellent on reasoning benchmarks.",
+            "qwen/qwen3-next-80b-a3b-thinking": "80B MoE thinking, affordable.",
+            "qwen/qwen3.7-max": "Qwen's top reasoning tier. 1M context.",
+            "openai/o4-mini": "Accessible OpenAI reasoning.",
+            "anthropic/claude-opus-4.8": "Anthropic's best. Pricey but unmatched depth.",
+            "openai/o3-pro": "OpenAI's most powerful reasoning model.",
         }
     },
-    "🔍 Pesquisa / Documentos Longos": {
-        "desc": "Análise de papers, documentos legais, relatórios extensos (requer >100K contexto)",
+    "🔍 Research / Long Documents": {
+        "desc": "Paper analysis, legal docs, long reports (requires >100K context)",
         "models": [
             "qwen/qwen3.7-plus",
             "google/gemini-3.5-flash",
@@ -96,15 +96,15 @@ TASKS = {
             "openai/gpt-5",
         ],
         "notes": {
-            "qwen/qwen3.7-plus": "🔥 1M contexto por $0.70. Melhor custo-benefício.",
-            "google/gemini-3.5-flash": "Multimodal nativo, processa qualquer formato.",
-            "anthropic/claude-sonnet-4.5": "Análise mais precisa e profunda de documentos.",
-            "deepseek/deepseek-v4-pro": "Bom para docs médios (164K ctx).",
-            "openai/gpt-5": "Qualidade OpenAI, 400K contexto.",
+            "qwen/qwen3.7-plus": "🔥 1M context for $0.70. Best value for long docs.",
+            "google/gemini-3.5-flash": "Native multimodal, handles any format.",
+            "anthropic/claude-sonnet-4.5": "Most precise and thorough document analysis.",
+            "deepseek/deepseek-v4-pro": "Solid for medium docs (164K ctx).",
+            "openai/gpt-5": "OpenAI quality, 400K context.",
         }
     },
-    "🌐 Multimodal (Imagem/Vídeo/Áudio)": {
-        "desc": "Análise de imagens, gráficos, capturas de tela, vídeos",
+    "🌐 Multimodal (Image/Video/Audio)": {
+        "desc": "Image analysis, charts, screenshots, video understanding",
         "models": [
             "qwen/qwen3-vl-235b-a22b-instruct",
             "google/gemini-3.5-flash",
@@ -113,15 +113,15 @@ TASKS = {
             "anthropic/claude-sonnet-4.5",
         ],
         "notes": {
-            "qwen/qwen3-vl-235b-a22b-instruct": "🔥 Visão 235B MoE. Preço imbatível.",
-            "google/gemini-3.5-flash": "Melhor multimodal: texto+imagem+áudio+video.",
-            "qwen/qwen3-vl-30b-a3b-instruct": "VL pequeno, muito barato ($0.23/1M).",
-            "openai/gpt-5": "Imagem+arquivo, qualidade OpenAI.",
-            "anthropic/claude-sonnet-4.5": "Imagem+arquivo, análise apurada.",
+            "qwen/qwen3-vl-235b-a22b-instruct": "🔥 235B MoE vision. Unbeatable price.",
+            "google/gemini-3.5-flash": "Best multimodal: text+image+audio+video natively.",
+            "qwen/qwen3-vl-30b-a3b-instruct": "Compact VL model, very cheap ($0.23/1M).",
+            "openai/gpt-5": "Image+file support, OpenAI quality.",
+            "anthropic/claude-sonnet-4.5": "Image+file support, precise analysis.",
         }
     },
-    "⚡ Tarefas Simples / Alto Volume": {
-        "desc": "Classificação, extração, batch processing, tarefas repetitivas",
+    "⚡ Simple Tasks / High Volume": {
+        "desc": "Classification, extraction, batch processing, repetitive tasks",
         "models": [
             "qwen/qwen3-235b-a22b-2507",
             "openai/gpt-5-nano",
@@ -131,12 +131,12 @@ TASKS = {
             "meta-llama/llama-4-scout",
         ],
         "notes": {
-            "qwen/qwen3-235b-a22b-2507": "🔥 Mais barato da lista! 235B por $0.09/1M.",
-            "openai/gpt-5-nano": "Qualidade OpenAI, barato ($0.14/1M).",
-            "google/gemini-2.5-flash-lite": "Google barato + 1M contexto.",
-            "ibm-granite/granite-4.1-8b": "Barato extremo. $0.06/1M.",
-            "mistralai/mistral-small-3.2-24b-instruct": "24B multimodal barato.",
-            "meta-llama/llama-4-scout": "10M contexto! Maior do mercado.",
+            "qwen/qwen3-235b-a22b-2507": "🔥 Cheapest on the list! 235B for $0.09/1M.",
+            "openai/gpt-5-nano": "OpenAI quality, cheap ($0.14/1M).",
+            "google/gemini-2.5-flash-lite": "Google's budget option + 1M context.",
+            "ibm-granite/granite-4.1-8b": "Extremely cheap. $0.06/1M.",
+            "mistralai/mistral-small-3.2-24b-instruct": "24B multimodal, affordable.",
+            "meta-llama/llama-4-scout": "10M context! Largest on the market.",
         }
     },
 }
@@ -206,7 +206,7 @@ def generate_tables(model_index):
         lines.append(f"## {task_name}")
         lines.append(f"_{task_info['desc']}_")
         lines.append("")
-        lines.append("| # | Modelo | $/1M tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Contexto | Nota |")
+        lines.append("| # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |")
         lines.append("|---|--------|------------|--------------|--------------|-----|----------|------|")
 
         for i, mid in enumerate(task_info["models"]):
@@ -233,16 +233,16 @@ def generate_tables(model_index):
 def generate_summary(model_index):
     """Generate executive summary with top picks."""
     top_models = [
-        ("🥇 Melhor Global", "deepseek/deepseek-v4-pro", "Melhor relação qualidade/preço em todas as categorias."),
-        ("🥈 Maior Barganha", "qwen/qwen3-235b-a22b-2507", "235B parâmetros (MoE) por apenas $0.09/1M tokens."),
-        ("🥉 Melhor Completo", "qwen/qwen3.7-plus", "1M contexto, multimodal, versátil, $0.70/1M."),
+        ("🥇 Best Overall", "deepseek/deepseek-v4-pro", "Best quality/price ratio across all categories."),
+        ("🥈 Best Bargain", "qwen/qwen3-235b-a22b-2507", "235B parameters (MoE) for only $0.09/1M tokens."),
+        ("🥉 Best All-Rounder", "qwen/qwen3.7-plus", "1M context, multimodal, versatile at $0.70/1M."),
     ]
 
     lines = [
-        "## 🏆 Top 3 Absolutos",
+        "## 🏆 Top 3 Overall",
         "",
-        "| Posição | Modelo | Por quê |",
-        "|---------|--------|---------|",
+        "| Position | Model | Why |",
+        "|----------|------|-----|",
     ]
     for pos, mid, reason in top_models:
         m = model_index.get(mid, {})
@@ -256,19 +256,19 @@ def generate_summary(model_index):
 def generate_cheatsheet():
     """Generate the quick-reference cheat sheet."""
     tips = [
-        ("💸 Quer gastar o mínimo?", "`qwen/qwen3-235b-a22b-2507` ($0.09/M) e `qwen/qwen3-235b-a22b-thinking-2507` ($0.10/M)"),
-        ("⭐ Melhor all-rounder?", "`deepseek/deepseek-v4-pro` ($0.54/M) — faz tudo bem"),
-        ("📚 Precisa de 1M de contexto?", "`qwen/qwen3.7-plus` ($0.70/M)"),
-        ("💻 Código?", "`qwen/qwen3-coder-flash` ($0.39/M) ou `qwen/qwen3-coder` ($0.62/M)"),
-        ("👁️ Multimodal / Visão?", "`qwen/qwen3-vl-235b-a22b-instruct` ($0.37/M)"),
-        ("🏔️ Topo de linha (sem limite de budget)?", "`anthropic/claude-sonnet-4.5` ($6/M) ou `openai/gpt-5` ($3.44/M)"),
+        ("💸 Cheapest possible?", "`qwen/qwen3-235b-a22b-2507` ($0.09/M) and `qwen/qwen3-235b-a22b-thinking-2507` ($0.10/M)"),
+        ("⭐ Best all-rounder?", "`deepseek/deepseek-v4-pro` ($0.54/M) — does everything well"),
+        ("📚 Need 1M context?", "`qwen/qwen3.7-plus` ($0.70/M)"),
+        ("💻 Code?", "`qwen/qwen3-coder-flash` ($0.39/M) or `qwen/qwen3-coder` ($0.62/M)"),
+        ("👁️ Multimodal / Vision?", "`qwen/qwen3-vl-235b-a22b-instruct` ($0.37/M)"),
+        ("🏔️ No budget limit?", "`anthropic/claude-sonnet-4.5` ($6/M) or `openai/gpt-5` ($3.44/M)"),
     ]
 
     lines = [
-        "## 💡 Recomendações Rápidas",
+        "## 💡 Quick Recommendations",
         "",
-        "| Cenário | Melhor Escolha |",
-        "|---------|---------------|",
+        "| Scenario | Best Pick |",
+        "|----------|-----------|",
     ]
     for scenario, pick in tips:
         lines.append(f"| {scenario} | {pick} |")
@@ -296,27 +296,27 @@ def main():
 [![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
 [![Last Updated](https://img.shields.io/badge/updated-{now.replace(' ', '%20')}-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
-> **Atualizado:** {now}  
-> **Total de modelos no OpenRouter:** {total_models}  
-> **Modelos pagos analisados:** {len(model_index)}  
-> **Metodologia:** Preço por 1M tokens (750K prompt + 250K completion). Dados via [OpenRouter API](https://openrouter.ai/api/v1/models).
+> **Updated:** {now}  
+> **Total models on OpenRouter:** {total_models}  
+> **Paid models analyzed:** {len(model_index)}  
+> **Methodology:** Price per 1M tokens (750K prompt + 250K completion). Data via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
 
-## 📖 Sobre
+## 📖 About
 
-Este ranking é gerado **automaticamente toda semana** e ordena os modelos disponíveis no [OpenRouter](https://openrouter.ai) por **custo-benefício**, organizados por caso de uso real:
+This ranking is generated **automatically every week** and orders models available on [OpenRouter](https://openrouter.ai) by **cost-effectiveness**, organized by real-world use cases:
 
-- 💬 Chat cotidiano e assistente geral
-- 💻 Programação e código
-- 🧠 Raciocínio complexo (matemática, lógica)
-- 🔍 Pesquisa e análise de documentos longos
-- 🌐 Multimodal (imagem, vídeo, áudio)
-- ⚡ Tarefas simples e alto volume
+- 💬 Daily chat and general assistant
+- 💻 Programming and code
+- 🧠 Complex reasoning (math, logic)
+- 🔍 Research and long document analysis
+- 🌐 Multimodal (image, video, audio)
+- ⚡ Simple tasks and high volume
 
-**Preços em USD.** Símbolos: 🟢 barato (<$0.15/M) 🟡 médio ($0.15-$0.50/M) 🟠 premium ($0.50-$1.50/M) 🔴 elite (>$1.50/M).
+**Prices in USD.** Symbols: 🟢 cheap (<$0.15/M) 🟡 medium ($0.15-$0.50/M) 🟠 premium ($0.50-$1.50/M) 🔴 elite (>$1.50/M).
 
-⭐ = Top 3 recomendações da categoria.
+⭐ = Top 3 recommendations per category.
 
 ---
 
@@ -332,27 +332,27 @@ Este ranking é gerado **automaticamente toda semana** e ordena os modelos dispo
 
 ---
 
-## 🔧 Metodologia
+## 🔧 Methodology
 
-- **Fonte:** [OpenRouter API](https://openrouter.ai/api/v1/models) (dados em tempo real)
-- **Cálculo de custo:** `(prompt_price × 750.000) + (completion_price × 250.000)` = custo por 1M tokens
-- **Proporção:** Assume 75% prompt / 25% completion (uso típico de chat)
-- **Ranking:** Ordenado por custo-benefício dentro de cada categoria, não apenas preço
-- **Atualização:** Semanal (via GitHub Actions)
-
----
-
-## 🤖 Automação
-
-Este repositório é atualizado automaticamente via:
-- **GitHub Actions:** Toda segunda-feira às 12:00 UTC
-- **Hermes Agent:** Cron job semanal que gera e publica o ranking
-
-Para rodar manualmente: `python generate_ranking.py`
+- **Source:** [OpenRouter API](https://openrouter.ai/api/v1/models) (real-time data)
+- **Cost formula:** `(prompt_price × 750,000) + (completion_price × 250,000)` = cost per 1M tokens
+- **Ratio:** Assumes 75% prompt / 25% completion (typical chat usage)
+- **Ranking:** Ordered by cost-effectiveness within each category, not just price
+- **Updates:** Weekly (via GitHub Actions)
 
 ---
 
-*Criado por [@Draxo-io](https://github.com/Draxo-io) · [draxo.io](https://draxo.io)*
+## 🤖 Automation
+
+This repository is updated automatically via:
+- **GitHub Actions:** Every Monday at 12:00 UTC
+- **Hermes Agent:** Weekly cron job that generates and publishes the ranking
+
+To run manually: `python generate_ranking.py`
+
+---
+
+*Created by [@Draxo-io](https://github.com/Draxo-io) · [draxo.io](https://draxo.io)*
 """
 
     output = sys.argv[1] if len(sys.argv) > 1 else OUTPUT_FILE
