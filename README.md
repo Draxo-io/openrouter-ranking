@@ -1,11 +1,11 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
 [![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
-[![Last Updated](https://img.shields.io/badge/updated-2026-06-22%2016:43%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
+[![Last Updated](https://img.shields.io/badge/updated-2026-06-29%2015:35%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
-> **Updated:** 2026-06-22 16:43 UTC  
-> **Total models on OpenRouter:** 339  
-> **Paid models analyzed:** 309  
+> **Updated:** 2026-06-29 15:35 UTC  
+> **Total models on OpenRouter:** 338  
+> **Paid models analyzed:** 308  
 > **Methodology:** Price per 1M tokens (750K prompt + 250K completion). Data via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
