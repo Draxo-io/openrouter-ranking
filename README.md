@@ -1,11 +1,11 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
 [![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
-[![Last Updated](https://img.shields.io/badge/updated-2026-06-29%2015:35%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
+[![Last Updated](https://img.shields.io/badge/updated-2026-07-06%2015:17%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
-> **Updated:** 2026-06-29 15:35 UTC  
-> **Total models on OpenRouter:** 338  
-> **Paid models analyzed:** 308  
+> **Updated:** 2026-07-06 15:17 UTC  
+> **Total models on OpenRouter:** 342  
+> **Paid models analyzed:** 311  
 > **Methodology:** Price per 1M tokens (750K prompt + 250K completion). Data via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
@@ -92,7 +92,7 @@ _Math, logic, science, step-by-step problem solving_
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
 | ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.5438 | $0.43 | $0.87 | 2.0x | 1,048,576 | 🔥 Strong reasoning at lightweight model prices. |
-| ⭐ 2 | `qwen/qwen3-235b-a22b-thinking-2507` | 🟢 $0.1000 | $0.10 | $0.10 | 1.0x | 262,144 | 235B MoE Thinking for $0.10/1M! The ultimate bargain. |
+| ⭐ 2 | `qwen/qwen3-235b-a22b-thinking-2507` | 🟡 $0.4859 | $0.15 | $1.50 | 10.0x | 262,144 | 235B MoE Thinking for $0.10/1M! The ultimate bargain. |
 | ⭐ 3 | `deepseek/deepseek-v3.2-exp` | 🟡 $0.3050 | $0.27 | $0.41 | 1.5x | 163,840 | Excellent on reasoning benchmarks. |
 |  4 | `qwen/qwen3-next-80b-a3b-thinking` | 🟡 $0.2681 | $0.10 | $0.78 | 8.0x | 262,144 | 80B MoE thinking, affordable. |
 |  5 | `qwen/qwen3.7-max` | 🔴 $1.8750 | $1.25 | $3.75 | 3.0x | 1,000,000 | Qwen's top reasoning tier. 1M context. |
