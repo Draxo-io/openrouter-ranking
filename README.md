@@ -1,11 +1,11 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
 [![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
-[![Last Updated](https://img.shields.io/badge/updated-2026-07-06%2015:17%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
+[![Last Updated](https://img.shields.io/badge/updated-2026-07-13%2014:16%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
-> **Updated:** 2026-07-06 15:17 UTC  
-> **Total models on OpenRouter:** 342  
-> **Paid models analyzed:** 311  
+> **Updated:** 2026-07-13 14:16 UTC  
+> **Total models on OpenRouter:** 343  
+> **Paid models analyzed:** 315  
 > **Methodology:** Price per 1M tokens (750K prompt + 250K completion). Data via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
@@ -32,7 +32,7 @@ This ranking is generated **automatically every week** and orders models availab
 | Position | Model | Why |
 |----------|------|-----|
 | 🥇 Best Overall | `deepseek/deepseek-v4-pro` ($0.54/1M) | Best quality/price ratio across all categories. |
-| 🥈 Best Bargain | `qwen/qwen3-235b-a22b-2507` ($0.09/1M) | 235B parameters (MoE) for only $0.09/1M tokens. |
+| 🥈 Best Bargain | `qwen/qwen3-235b-a22b-2507` ($0.21/1M) | 235B parameters (MoE) for only $0.09/1M tokens. |
 | 🥉 Best All-Rounder | `qwen/qwen3.7-plus` ($0.56/1M) | 1M context, multimodal, versatile at $0.70/1M. |
 
 
@@ -136,7 +136,7 @@ _Classification, extraction, batch processing, repetitive tasks_
 
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `qwen/qwen3-235b-a22b-2507` | 🟢 $0.0925 | $0.09 | $0.10 | 1.1x | 262,144 | 🔥 Cheapest on the list! 235B for $0.09/1M. |
+| ⭐ 1 | `qwen/qwen3-235b-a22b-2507` | 🟡 $0.2050 | $0.09 | $0.55 | 6.1x | 262,144 | 🔥 Cheapest on the list! 235B for $0.09/1M. |
 | ⭐ 2 | `openai/gpt-5-nano` | 🟢 $0.1375 | $0.05 | $0.40 | 8.0x | 400,000 | OpenAI quality, cheap ($0.14/1M). |
 | ⭐ 3 | `google/gemini-2.5-flash-lite` | 🟡 $0.1750 | $0.10 | $0.40 | 4.0x | 1,048,576 | Google's budget option + 1M context. |
 |  4 | `ibm-granite/granite-4.1-8b` | 🟢 $0.0625 | $0.05 | $0.10 | 2.0x | 131,072 | Extremely cheap. $0.06/1M. |
