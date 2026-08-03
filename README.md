@@ -1,11 +1,11 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
 [![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
-[![Last Updated](https://img.shields.io/badge/updated-2026-07-27%2014:15%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
+[![Last Updated](https://img.shields.io/badge/updated-2026-08-03%2014:22%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
-> **Updated:** 2026-07-27 14:15 UTC  
-> **Total models on OpenRouter:** 342  
-> **Paid models analyzed:** 319  
+> **Updated:** 2026-08-03 14:22 UTC  
+> **Total models on OpenRouter:** 337  
+> **Paid models analyzed:** 315  
 > **Methodology:** Price per 1M tokens (750K prompt + 250K completion). Data via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
@@ -32,7 +32,7 @@ This ranking is generated **automatically every week** and orders models availab
 | Position | Model | Why |
 |----------|------|-----|
 | 🥇 Best Overall | `deepseek/deepseek-v4-pro` ($0.54/1M) | Best quality/price ratio across all categories. |
-| 🥈 Best Bargain | `qwen/qwen3-235b-a22b-2507` ($0.21/1M) | 235B parameters (MoE) for only $0.09/1M tokens. |
+| 🥈 Best Bargain | `qwen/qwen3-235b-a22b-2507` ($0.26/1M) | 235B parameters (MoE) for only $0.09/1M tokens. |
 | 🥉 Best All-Rounder | `qwen/qwen3.7-plus` ($0.56/1M) | 1M context, multimodal, versatile at $0.70/1M. |
 
 
@@ -77,10 +77,9 @@ _Code generation, debugging, code review, software architecture_
 | ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.5438 | $0.43 | $0.87 | 2.0x | 1,048,576 | 🔥 Unbeatable: production-quality code at flash prices. |
 | ⭐ 2 | `qwen/qwen3-coder` | 🟡 $0.4750 | $0.30 | $1.00 | 3.3x | 262,144 | Dedicated 480B coder. 1M context. |
 | ⭐ 3 | `qwen/qwen3-coder-flash` | 🟡 $0.3900 | $0.20 | $0.97 | 5.0x | 1,000,000 | Coder Flash. Fast and efficient for code tasks. |
-|  4 | `qwen/qwen3-coder-30b-a3b-instruct` | 🟢 $0.1200 | $0.07 | $0.27 | 3.9x | 262,144 | Ultra-cheap for simple code. $0.12/1M! |
+|  4 | `qwen/qwen3-coder-30b-a3b-instruct` | 🟢 $0.1225 | $0.07 | $0.28 | 4.0x | 262,144 | Ultra-cheap for simple code. $0.12/1M! |
 |  5 | `mistralai/codestral-2508` | 🟡 $0.4500 | $0.30 | $0.90 | 3.0x | 256,000 | Mistral's Codestral. Code-focused, solid performance. |
 |  6 | `x-ai/grok-build-0.1` | 🟠 $1.2500 | $1.00 | $2.00 | 2.0x | 256,000 | Grok Build. Optimized for software engineering. |
-|  7 | `openai/gpt-5-codex` | 🔴 $3.4375 | $1.25 | $10.00 | 8.0x | 400,000 | GPT-5 Codex. OpenAI's top-tier coding model. |
 |  8 | `anthropic/claude-sonnet-4.5` | 🔴 $6.0000 | $3.00 | $15.00 | 5.0x | 1,000,000 | Claude Sonnet. Excellent for refactoring and PR reviews. |
 
 
@@ -92,9 +91,9 @@ _Math, logic, science, step-by-step problem solving_
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
 | ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.5438 | $0.43 | $0.87 | 2.0x | 1,048,576 | 🔥 Strong reasoning at lightweight model prices. |
-| ⭐ 2 | `qwen/qwen3-235b-a22b-thinking-2507` | 🟠 $0.9750 | $0.30 | $3.00 | 10.0x | 262,144 | 235B MoE Thinking for $0.10/1M! The ultimate bargain. |
+| ⭐ 2 | `qwen/qwen3-235b-a22b-thinking-2507` | 🟠 $0.7475 | $0.23 | $2.30 | 10.0x | 262,144 | 235B MoE Thinking for $0.10/1M! The ultimate bargain. |
 | ⭐ 3 | `deepseek/deepseek-v3.2-exp` | 🟡 $0.3050 | $0.27 | $0.41 | 1.5x | 163,840 | Excellent on reasoning benchmarks. |
-|  4 | `qwen/qwen3-next-80b-a3b-thinking` | 🟡 $0.2681 | $0.10 | $0.78 | 8.0x | 262,144 | 80B MoE thinking, affordable. |
+|  4 | `qwen/qwen3-next-80b-a3b-thinking` | 🟡 $0.4125 | $0.15 | $1.20 | 8.0x | 262,144 | 80B MoE thinking, affordable. |
 |  5 | `qwen/qwen3.7-max` | 🔴 $2.2125 | $1.48 | $4.42 | 3.0x | 1,000,000 | Qwen's top reasoning tier. 1M context. |
 |  6 | `openai/o4-mini` | 🔴 $1.9250 | $1.10 | $4.40 | 4.0x | 200,000 | Accessible OpenAI reasoning. |
 |  7 | `anthropic/claude-opus-4.8` | 🔴 $10.0000 | $5.00 | $25.00 | 5.0x | 1,000,000 | Anthropic's best. Pricey but unmatched depth. |
@@ -124,7 +123,7 @@ _Image analysis, charts, screenshots, video understanding_
 |---|--------|------------|--------------|--------------|-----|----------|------|
 | ⭐ 1 | `qwen/qwen3-vl-235b-a22b-instruct` | 🟠 $0.6325 | $0.21 | $1.90 | 9.0x | 262,144 | 🔥 235B MoE vision. Unbeatable price. |
 | ⭐ 2 | `google/gemini-3.5-flash` | 🔴 $3.3750 | $1.50 | $9.00 | 6.0x | 1,048,576 | Best multimodal: text+image+audio+video natively. |
-| ⭐ 3 | `qwen/qwen3-vl-30b-a3b-instruct` | 🟡 $0.2625 | $0.15 | $0.60 | 4.0x | 262,144 | Compact VL model, very cheap ($0.23/1M). |
+| ⭐ 3 | `qwen/qwen3-vl-30b-a3b-instruct` | 🟡 $0.2275 | $0.13 | $0.52 | 4.0x | 262,144 | Compact VL model, very cheap ($0.23/1M). |
 |  4 | `openai/gpt-5` | 🔴 $3.4375 | $1.25 | $10.00 | 8.0x | 400,000 | Image+file support, OpenAI quality. |
 |  5 | `anthropic/claude-sonnet-4.5` | 🔴 $6.0000 | $3.00 | $15.00 | 5.0x | 1,000,000 | Image+file support, precise analysis. |
 
@@ -136,11 +135,11 @@ _Classification, extraction, batch processing, repetitive tasks_
 
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `qwen/qwen3-235b-a22b-2507` | 🟡 $0.2050 | $0.09 | $0.55 | 6.1x | 262,144 | 🔥 Cheapest on the list! 235B for $0.09/1M. |
+| ⭐ 1 | `qwen/qwen3-235b-a22b-2507` | 🟡 $0.2616 | $0.15 | $0.60 | 4.0x | 262,144 | 🔥 Cheapest on the list! 235B for $0.09/1M. |
 | ⭐ 2 | `openai/gpt-5-nano` | 🟢 $0.1375 | $0.05 | $0.40 | 8.0x | 400,000 | OpenAI quality, cheap ($0.14/1M). |
 | ⭐ 3 | `google/gemini-2.5-flash-lite` | 🟡 $0.1750 | $0.10 | $0.40 | 4.0x | 1,048,576 | Google's budget option + 1M context. |
 |  4 | `ibm-granite/granite-4.1-8b` | 🟢 $0.0625 | $0.05 | $0.10 | 2.0x | 131,072 | Extremely cheap. $0.06/1M. |
-|  5 | `mistralai/mistral-small-3.2-24b-instruct` | 🟡 $0.1500 | $0.10 | $0.30 | 3.0x | 256,000 | 24B multimodal, affordable. |
+|  5 | `mistralai/mistral-small-3.2-24b-instruct` | 🟢 $0.1062 | $0.07 | $0.20 | 2.7x | 256,000 | 24B multimodal, affordable. |
 |  6 | `meta-llama/llama-4-scout` | 🟡 $0.1500 | $0.10 | $0.30 | 3.0x | 1,310,720 | 10M context! Largest on the market. |
 
 
