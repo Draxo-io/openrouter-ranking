@@ -1,11 +1,11 @@
 # 🏆 OpenRouter LLM Cost-Effectiveness Ranking
 
 [![Update Ranking](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml/badge.svg)](https://github.com/Draxo-io/openrouter-ranking/actions/workflows/update-ranking.yml)
-[![Last Updated](https://img.shields.io/badge/updated-2026-08-24%2012:33%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
+[![Last Updated](https://img.shields.io/badge/updated-2026-08-31%2018:34%20UTC-blue)](https://github.com/Draxo-io/openrouter-ranking)
 
-> **Updated:** 2026-08-24 12:33 UTC  
-> **Total models on OpenRouter:** 419  
-> **Paid models analyzed:** 392  
+> **Updated:** 2026-08-31 18:34 UTC  
+> **Total models on OpenRouter:** 395  
+> **Paid models analyzed:** 369  
 > **Methodology:** Price per 1M tokens (750K prompt + 250K completion). Data via [OpenRouter API](https://openrouter.ai/api/v1/models).
 
 ---
@@ -31,8 +31,8 @@ This ranking is generated **automatically every week** and orders models availab
 
 | Position | Model | Why |
 |----------|------|-----|
-| 🥇 Best Overall | `deepseek/deepseek-v4-pro` ($0.66/1M) | Best quality/price ratio across all categories. |
-| 🥈 Best Bargain | `qwen/qwen3-235b-a22b-2507` ($0.21/1M) | 235B parameters (MoE) for only $0.09/1M tokens. |
+| 🥇 Best Overall | `deepseek/deepseek-v4-pro` ($1.29/1M) | Best quality/price ratio across all categories. |
+| 🥈 Best Bargain | `qwen/qwen3-235b-a22b-2507` ($0.15/1M) | 235B parameters (MoE) for only $0.09/1M tokens. |
 | 🥉 Best All-Rounder | `qwen/qwen3.7-plus` ($0.56/1M) | 1M context, multimodal, versatile at $0.70/1M. |
 
 
@@ -57,14 +57,14 @@ _Conversations, Q&A, summaries, translation, creative writing_
 
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.6577 | $0.53 | $1.05 | 2.0x | 1,048,576 | 🔥 Best overall value. GPT-4o-class quality at flash prices. |
+| ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $1.2928 | $1.03 | $2.07 | 2.0x | 1,048,576 | 🔥 Best overall value. GPT-4o-class quality at flash prices. |
 | ⭐ 2 | `deepseek/deepseek-v3.2-exp` | 🟡 $0.3050 | $0.27 | $0.41 | 1.5x | 163,840 | DeepSeek experimental. Strong reasoning, cheap. |
 | ⭐ 3 | `qwen/qwen3.7-plus` | 🟠 $0.5600 | $0.32 | $1.28 | 4.0x | 1,000,000 | Qwen's mid-tier workhorse. 1M context, great value. |
 |  4 | `openai/gpt-5-mini` | 🟠 $0.6875 | $0.25 | $2.00 | 8.0x | 400,000 | GPT-5 Mini. 400K context, affordable OpenAI quality. |
 |  5 | `x-ai/grok-4.3` | 🔴 $1.5625 | $1.25 | $2.50 | 2.0x | 1,000,000 | Grok 4.3. 1M context, built-in web search. |
 |  6 | `openai/gpt-5` | 🔴 $3.4375 | $1.25 | $10.00 | 8.0x | 400,000 | GPT-5. The gold standard for complex tasks. |
 |  7 | `anthropic/claude-sonnet-4.5` | 🔴 $6.0000 | $3.00 | $15.00 | 5.0x | 1,000,000 | Claude Sonnet 4.5. 1M context, deep analysis. |
-|  8 | `google/gemini-3.5-flash` | 🔴 $3.3750 | $1.50 | $9.00 | 6.0x | 1,048,576 | Gemini Flash. Native multimodal, 1M context. |
+|  8 | `google/gemini-3.5-flash` | 🔴 $3.7125 | $1.65 | $9.90 | 6.0x | 1,048,576 | Gemini Flash. Native multimodal, 1M context. |
 
 
 ---
@@ -74,7 +74,7 @@ _Code generation, debugging, code review, software architecture_
 
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.6577 | $0.53 | $1.05 | 2.0x | 1,048,576 | 🔥 Unbeatable: production-quality code at flash prices. |
+| ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $1.2928 | $1.03 | $2.07 | 2.0x | 1,048,576 | 🔥 Unbeatable: production-quality code at flash prices. |
 | ⭐ 2 | `qwen/qwen3-coder` | 🟡 $0.4750 | $0.30 | $1.00 | 3.3x | 262,144 | Dedicated 480B coder. 1M context. |
 | ⭐ 3 | `qwen/qwen3-coder-flash` | 🟡 $0.3900 | $0.20 | $0.97 | 5.0x | 1,000,000 | Coder Flash. Fast and efficient for code tasks. |
 |  4 | `qwen/qwen3-coder-30b-a3b-instruct` | 🟢 $0.1225 | $0.07 | $0.28 | 4.0x | 262,144 | Ultra-cheap for simple code. $0.12/1M! |
@@ -90,8 +90,8 @@ _Math, logic, science, step-by-step problem solving_
 
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $0.6577 | $0.53 | $1.05 | 2.0x | 1,048,576 | 🔥 Strong reasoning at lightweight model prices. |
-| ⭐ 2 | `qwen/qwen3-235b-a22b-thinking-2507` | 🟠 $0.7475 | $0.23 | $2.30 | 10.0x | 262,144 | 235B MoE Thinking for $0.10/1M! The ultimate bargain. |
+| ⭐ 1 | `deepseek/deepseek-v4-pro` | 🟠 $1.2928 | $1.03 | $2.07 | 2.0x | 1,048,576 | 🔥 Strong reasoning at lightweight model prices. |
+| ⭐ 2 | `qwen/qwen3-235b-a22b-thinking-2507` | 🟠 $0.7475 | $0.23 | $2.30 | 10.0x | 131,072 | 235B MoE Thinking for $0.10/1M! The ultimate bargain. |
 | ⭐ 3 | `deepseek/deepseek-v3.2-exp` | 🟡 $0.3050 | $0.27 | $0.41 | 1.5x | 163,840 | Excellent on reasoning benchmarks. |
 |  4 | `qwen/qwen3-next-80b-a3b-thinking` | 🟡 $0.4125 | $0.15 | $1.20 | 8.0x | 262,144 | 80B MoE thinking, affordable. |
 |  5 | `qwen/qwen3.7-max` | 🔴 $2.2125 | $1.48 | $4.42 | 3.0x | 1,000,000 | Qwen's top reasoning tier. 1M context. |
@@ -108,9 +108,9 @@ _Paper analysis, legal docs, long reports (requires >100K context)_
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
 | ⭐ 1 | `qwen/qwen3.7-plus` | 🟠 $0.5600 | $0.32 | $1.28 | 4.0x | 1,000,000 | 🔥 1M context for $0.70. Best value for long docs. |
-| ⭐ 2 | `google/gemini-3.5-flash` | 🔴 $3.3750 | $1.50 | $9.00 | 6.0x | 1,048,576 | Native multimodal, handles any format. |
+| ⭐ 2 | `google/gemini-3.5-flash` | 🔴 $3.7125 | $1.65 | $9.90 | 6.0x | 1,048,576 | Native multimodal, handles any format. |
 | ⭐ 3 | `anthropic/claude-sonnet-4.5` | 🔴 $6.0000 | $3.00 | $15.00 | 5.0x | 1,000,000 | Most precise and thorough document analysis. |
-|  4 | `deepseek/deepseek-v4-pro` | 🟠 $0.6577 | $0.53 | $1.05 | 2.0x | 1,048,576 | Solid for medium docs (164K ctx). |
+|  4 | `deepseek/deepseek-v4-pro` | 🟠 $1.2928 | $1.03 | $2.07 | 2.0x | 1,048,576 | Solid for medium docs (164K ctx). |
 |  5 | `openai/gpt-5` | 🔴 $3.4375 | $1.25 | $10.00 | 8.0x | 400,000 | OpenAI quality, 400K context. |
 
 
@@ -122,8 +122,8 @@ _Image analysis, charts, screenshots, video understanding_
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
 | ⭐ 1 | `qwen/qwen3-vl-235b-a22b-instruct` | 🟠 $0.6325 | $0.21 | $1.90 | 9.0x | 262,144 | 🔥 235B MoE vision. Unbeatable price. |
-| ⭐ 2 | `google/gemini-3.5-flash` | 🔴 $3.3750 | $1.50 | $9.00 | 6.0x | 1,048,576 | Best multimodal: text+image+audio+video natively. |
-| ⭐ 3 | `qwen/qwen3-vl-30b-a3b-instruct` | 🟡 $0.2275 | $0.13 | $0.52 | 4.0x | 262,144 | Compact VL model, very cheap ($0.23/1M). |
+| ⭐ 2 | `google/gemini-3.5-flash` | 🔴 $3.7125 | $1.65 | $9.90 | 6.0x | 1,048,576 | Best multimodal: text+image+audio+video natively. |
+| ⭐ 3 | `qwen/qwen3-vl-30b-a3b-instruct` | 🟡 $0.2625 | $0.15 | $0.60 | 4.0x | 262,144 | Compact VL model, very cheap ($0.23/1M). |
 |  4 | `openai/gpt-5` | 🔴 $3.4375 | $1.25 | $10.00 | 8.0x | 400,000 | Image+file support, OpenAI quality. |
 |  5 | `anthropic/claude-sonnet-4.5` | 🔴 $6.0000 | $3.00 | $15.00 | 5.0x | 1,000,000 | Image+file support, precise analysis. |
 
@@ -135,12 +135,12 @@ _Classification, extraction, batch processing, repetitive tasks_
 
 | # | Model | $/1M Tokens | Prompt (¢/1M) | Compl (¢/1M) | P/C | Context | Notes |
 |---|--------|------------|--------------|--------------|-----|----------|------|
-| ⭐ 1 | `qwen/qwen3-235b-a22b-2507` | 🟡 $0.2050 | $0.09 | $0.55 | 6.1x | 262,144 | 🔥 Cheapest on the list! 235B for $0.09/1M. |
+| ⭐ 1 | `qwen/qwen3-235b-a22b-2507` | 🟡 $0.1531 | $0.09 | $0.35 | 4.0x | 262,144 | 🔥 Cheapest on the list! 235B for $0.09/1M. |
 | ⭐ 2 | `openai/gpt-5-nano` | 🟢 $0.1375 | $0.05 | $0.40 | 8.0x | 400,000 | OpenAI quality, cheap ($0.14/1M). |
 | ⭐ 3 | `google/gemini-2.5-flash-lite` | 🟡 $0.1750 | $0.10 | $0.40 | 4.0x | 1,048,576 | Google's budget option + 1M context. |
 |  4 | `ibm-granite/granite-4.1-8b` | 🟢 $0.0625 | $0.05 | $0.10 | 2.0x | 131,072 | Extremely cheap. $0.06/1M. |
 |  5 | `mistralai/mistral-small-3.2-24b-instruct` | 🟢 $0.1062 | $0.07 | $0.20 | 2.7x | 131,072 | 24B multimodal, affordable. |
-|  6 | `meta-llama/llama-4-scout` | 🟡 $0.1500 | $0.10 | $0.30 | 3.0x | 1,310,720 | 10M context! Largest on the market. |
+|  6 | `meta-llama/llama-4-scout` | 🟡 $0.1675 | $0.11 | $0.34 | 3.1x | 1,310,720 | 10M context! Largest on the market. |
 
 
 ---
